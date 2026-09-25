@@ -5486,6 +5486,12 @@
         font-size: 13px;
       }
 
+      .footer-btm-content {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
       @media (max-width: 900px) {
         #testimonials .testi-grid,
         #blog.kitchen-redesign .blog-grid {
@@ -5520,8 +5526,16 @@
         footer.footer-redesign .footer-btm {
           padding-left: 24px;
           padding-right: 24px;
+          display: block;
+        }
+
+        .footer-btm-content {
+          flex-direction: column;
+          align-items: start;
+          margin-bottom: 8px;
         }
       }
+
       @media (max-width: 600px) {
         #testimonials.testimonials-redesign,
         #blog.kitchen-redesign,
@@ -5560,6 +5574,12 @@
         footer.footer-redesign .footer-btm {
           padding: 18px 20px 24px;
           display: block;
+        }
+
+        .footer-btm-content {
+          flex-direction: column;
+          align-items: start;
+          margin-bottom: 5px;
         }
       }
     </style>
@@ -5886,9 +5906,12 @@
         }
 
         .mobile-nav-inner > a:not(.mobile-nav-cta)::after {
-          content: "↗";
-          color: var(--gold-deep);
-          font-size: 15px;
+          content: "";
+          width: 7px;
+          height: 7px;
+          border-top: 1.5px solid var(--gold-deep);
+          border-right: 1.5px solid var(--gold-deep);
+          transform: rotate(45deg);
           opacity: 0.7;
         }
 
@@ -6147,8 +6170,26 @@
             href="https://wa.me/2348107109470"
             class="mobile-nav-cta"
             target="_blank"
+            rel="noopener noreferrer"
           >
-            Book an Order <span>↗</span>
+            Book an Order
+            <svg
+              class="mobile-nav-cta-icon"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 19L19 5M9 5H19V15"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </a>
         </div>
       </div>
@@ -6179,9 +6220,27 @@
               href="https://wa.me/2348107109470"
               class="premium-btn premium-btn-primary"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Order on WhatsApp
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true"
+                ><svg
+                  class="mobile-nav-cta-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 19L19 5M9 5H19V15"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+              ></span>
             </a>
             <a href="#gallery" class="premium-btn premium-btn-secondary">
               Explore our cakes
@@ -6742,8 +6801,25 @@
                 href="https://wa.me/2348107109470?text=Hello! I would like to ask about your menu and pricing."
                 class="menu-text-link"
                 target="_blank"
-                >Ask about an order <span>↗</span></a
-              >
+                >Ask about an order
+                <span
+                  ><svg
+                    class="mobile-nav-cta-icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 19L19 5M9 5H19V15"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg></span
+              ></a>
             </div>
           </div>
         </div>
@@ -6818,8 +6894,26 @@
             href="https://wa.me/2348107109470?text=Hello! I would like to ask about your pricing."
             class="menu-price-btn"
             target="_blank"
-            >Ask About Pricing <span>↗</span></a
-          >
+            >Ask About Pricing
+            <span>
+              <svg
+                class="mobile-nav-cta-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 19L19 5M9 5H19V15"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg> </span
+          ></a>
         </div>
       </div>
     </section>
@@ -6895,8 +6989,26 @@
           <a
             href="https://wa.me/2348107109470?text=Hello! I have an idea for an order and would like to discuss it."
             target="_blank"
-            >Let's talk about it <strong>↗</strong></a
-          >
+            >Let's talk about it
+            <strong>
+              <svg
+                class="mobile-nav-cta-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 19L19 5M9 5H19V15"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg> </strong
+          ></a>
         </div>
       </div>
     </section>
@@ -6975,7 +7087,26 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Chat on WhatsApp <span>↗</span>
+              Chat on WhatsApp
+              <span>
+                <svg
+                  class="mobile-nav-cta-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 19L19 5M9 5H19V15"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
             </a>
           </div>
         </div>
@@ -7406,7 +7537,7 @@
         </div>
       </div>
       <div class="footer-btm">
-        <div style="display: flex; gap: 10px; align-items: center">
+        <div class="footer-btm-content">
           <span class="f-copy"
             >© 2026 Ispi Cakes and Pastries · CAC Reg. 9642426 · Egbeda, Lagos,
             Nigeria.</span
