@@ -39,36 +39,57 @@
     <meta name="ICBM" content="6.6018, 3.2904" />
     <link rel="canonical" href="https://ispicakesandpastries.netlify.app/" />
 
-    <!-- OPEN GRAPH -->
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://ispicakesandpastries.netlify.app/"
-    />
+
     <meta
       property="og:title"
-      content="Ispi Cakes and Pastries | Birthday Cakes Egbeda Lagos"
+      content="ISPI Cakes & Pastries | Every Celebration Deserves a Cake Worth Remembering"
     />
+
     <meta
       property="og:description"
-      content="Best birthday cakes and pastries in Egbeda Lagos. Custom wedding cakes, graduation cakes, meat pie, doughnuts and event catering. Order on WhatsApp: 08107109470."
+      content="Custom cakes, pastries and cupcakes baked fresh for birthdays, weddings, celebrations and every sweet moment in between."
     />
-    <meta property="og:locale" content="en_NG" />
-    <meta property="og:site_name" content="Ispi Cakes and Pastries" />
 
-    <!-- TWITTER CARD -->
+    <meta property="og:url" content="https://ispicakes-pastries.vercel.app/" />
+
+    <meta property="og:site_name" content="ISPI Cakes & Pastries" />
+
+    <meta
+      property="og:image"
+      content="https://ispicakes-pastries.vercel.app/opengraph.jpg"
+    />
+
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta
+      property="og:image:alt"
+      content="ISPI Cakes & Pastries - Custom cakes, pastries and cupcakes in Lagos"
+    />
+
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
+
     <meta
       name="twitter:title"
-      content="Ispi Cakes and Pastries | Birthday Cakes Egbeda Lagos"
+      content="ISPI Cakes & Pastries | Every Celebration Deserves a Cake Worth Remembering"
     />
-    <meta
-      name="twitter:image"
-      content="https://ispicakesandpastries.netlify.app/og-image.jpg"
-    />
+
     <meta
       name="twitter:description"
-      content="Best birthday cakes and pastries in Egbeda Lagos by Akindele Israel. Order on WhatsApp: 08107109470."
+      content="Custom cakes, pastries and cupcakes baked fresh for birthdays, weddings, celebrations and every sweet moment in between."
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://ispicakes-pastries.vercel.app/opengraph.jpg"
+    />
+
+    <meta
+      name="twitter:image:alt"
+      content="ISPI Cakes & Pastries - Custom cakes and pastries in Lagos"
     />
 
     <!-- LOCAL BUSINESS SCHEMA -->
@@ -6138,8 +6159,22 @@
         color: rgba(255, 255, 255, 0.5);
       }
 
-      #contact .fg input[type="date"]:valid {
-        color: #fff;
+      #contact .fg:has(input[type="date"]) {
+        position: relative;
+      }
+
+      #contact .fg:has(input[type="date"])::before {
+        content: "mm/dd/yyyy";
+        position: absolute;
+        left: 17px;
+        bottom: 13px;
+        color: rgba(255, 255, 255, 0.5);
+        pointer-events: none;
+        font-size: 16px;
+      }
+
+      #contact .fg:has(input[type="date"].has-value)::before {
+        display: none;
       }
 
       #contact .fg select {
@@ -7774,6 +7809,17 @@
           if (window.innerWidth > 820) closeMenu();
         });
       })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var fd = document.getElementById("fd");
+        if (fd) {
+          fd.addEventListener("change", function () {
+            this.closest(".fg").classList.toggle("has-value", !!this.value);
+          });
+        }
+      });
     </script>
 
     <style id="ispi-not-found-styles">
