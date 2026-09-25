@@ -6165,6 +6165,30 @@
         filter: none;
       }
 
+      #contact .fg .date-wrapper {
+        position: relative;
+      }
+
+      #contact .fg .date-wrapper::before {
+        content: "mm/dd/yyyy";
+        position: absolute;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        pointer-events: none;
+        font-size: inherit;
+      }
+
+      #contact
+        .fg
+        .date-wrapper
+        input[type="date"]:not(:placeholder-shown)
+        + span,
+      #contact .fg .date-wrapper.has-value::before {
+        display: none;
+      }
+
       @media (max-width: 600px) {
         #contact .fg-row {
           grid-template-columns: minmax(0, 1fr);
@@ -7770,6 +7794,19 @@
           if (window.innerWidth > 820) closeMenu();
         });
       })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector('#contact input[type="date"]')
+          .addEventListener("change", function () {
+            this.closest(".date-wrapper").classList.toggle(
+              "has-value",
+              !!this.value,
+            );
+          });
+      });
     </script>
 
     <style id="ispi-not-found-styles">
