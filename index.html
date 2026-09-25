@@ -6110,6 +6110,69 @@
         }
       }
     </style>
+
+    <style id="ios-form-fix">
+      /* iOS Safari: keep native form controls inside the grid and respect spacing */
+      #contact .fg-row > .fg {
+        min-width: 0;
+      }
+
+      #contact .fg input,
+      #contact .fg select,
+      #contact .fg textarea {
+        box-sizing: border-box;
+        max-width: 100%;
+        min-width: 0;
+        -webkit-box-sizing: border-box;
+      }
+
+      #contact .fg input[type="date"] {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        padding: 13px 17px;
+        color: #fff;
+      }
+
+      #contact .fg select {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        padding: 13px 42px 13px 17px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e3c078' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 14px 14px;
+      }
+
+      #contact .fg input[type="date"]::-webkit-date-and-time-value {
+        text-align: left;
+      }
+
+      #contact .fg input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0.75;
+        margin-left: 8px;
+        filter: none;
+      }
+
+      @media (max-width: 600px) {
+        #contact .fg-row {
+          grid-template-columns: minmax(0, 1fr);
+          width: 100%;
+        }
+
+        #contact .fg-row > .fg,
+        #contact .fg input[type="date"],
+        #contact .fg select {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="ann-bar">
@@ -7856,6 +7919,7 @@
         }
       }
     </style>
+
     <section id="ispi-not-found" aria-labelledby="ispi-not-found-title">
       <div class="nf-bg-number" aria-hidden="true">404</div>
       <div class="nf-content">
@@ -7881,6 +7945,7 @@
         </div>
       </div>
     </section>
+
     <script id="ispi-not-found-script">
       (function () {
         var n = document.getElementById("ispi-not-found"),
