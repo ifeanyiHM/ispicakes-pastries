@@ -7571,5 +7571,238 @@
         });
       })();
     </script>
+
+    <style id="ispi-not-found-styles">
+      #ispi-not-found {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+        background:
+          radial-gradient(
+            circle at 15% 20%,
+            rgba(210, 166, 80, 0.12),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 85% 80%,
+            rgba(31, 78, 121, 0.1),
+            transparent 32%
+          ),
+          #f8f5ee;
+        color: #18212b;
+        font-family: inherit;
+      }
+      #ispi-not-found.is-visible {
+        display: flex;
+      }
+      #ispi-not-found .nf-bg-number {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -58%);
+        font-size: clamp(180px, 32vw, 520px);
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.08em;
+        color: rgba(24, 33, 43, 0.035);
+        user-select: none;
+        pointer-events: none;
+      }
+      #ispi-not-found .nf-content {
+        position: relative;
+        z-index: 1;
+        width: min(720px, 100%);
+        text-align: center;
+      }
+      #ispi-not-found .nf-mark {
+        width: 68px;
+        height: 68px;
+        margin: 0 auto 28px;
+        border: 1px solid rgba(24, 33, 43, 0.12);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 18px 50px rgba(24, 33, 43, 0.08);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+      #ispi-not-found .nf-kicker {
+        margin: 0 0 14px;
+        color: #b28a3d;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      #ispi-not-found h1 {
+        margin: 0;
+        font-size: clamp(52px, 8vw, 104px);
+        line-height: 0.9;
+        letter-spacing: -0.065em;
+        font-weight: 800;
+      }
+      #ispi-not-found h1 span {
+        color: #1f4e79;
+      }
+      #ispi-not-found .nf-message {
+        max-width: 520px;
+        margin: 26px auto 0;
+        color: #66717d;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+      #ispi-not-found .nf-path {
+        display: inline-block;
+        max-width: 100%;
+        margin-top: 12px;
+        padding: 8px 12px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(24, 33, 43, 0.055);
+        color: #59636e;
+        font-size: 12px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      #ispi-not-found .nf-actions {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+      #ispi-not-found .nf-button {
+        min-height: 50px;
+        padding: 0 24px;
+        border-radius: 999px;
+        border: 1px solid #1f4e79;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background 180ms ease;
+      }
+      #ispi-not-found .nf-button:hover {
+        transform: translateY(-2px);
+      }
+      #ispi-not-found .nf-button-primary {
+        background: #1f4e79;
+        color: #fff;
+        box-shadow: 0 12px 28px rgba(31, 78, 121, 0.2);
+      }
+      #ispi-not-found .nf-button-secondary {
+        background: transparent;
+        color: #1f4e79;
+      }
+      @media (max-width: 600px) {
+        #ispi-not-found {
+          padding: 24px;
+        }
+        #ispi-not-found h1 {
+          font-size: clamp(58px, 18vw, 88px);
+        }
+        #ispi-not-found .nf-message {
+          font-size: 15px;
+        }
+        #ispi-not-found .nf-actions {
+          flex-direction: column;
+        }
+        #ispi-not-found .nf-button {
+          width: 100%;
+        }
+      }
+    </style>
+    <section id="ispi-not-found" aria-labelledby="ispi-not-found-title">
+      <div class="nf-bg-number" aria-hidden="true">404</div>
+      <div class="nf-content">
+        <div class="nf-mark" aria-hidden="true">ISPI</div>
+        <p class="nf-kicker">Page not found</p>
+        <h1 id="ispi-not-found-title">
+          Oops, this page <span>isn't here.</span>
+        </h1>
+        <p class="nf-message">
+          The page you're looking for doesn't exist or may have been moved.
+          Let's get you back to Ispi Cakes and Pastries.
+        </p>
+        <div class="nf-path" id="ispi-not-found-path" aria-live="polite"></div>
+        <div class="nf-actions">
+          <a class="nf-button nf-button-primary" href="/">Back to Home</a
+          ><button
+            class="nf-button nf-button-secondary"
+            type="button"
+            id="ispi-not-found-back"
+          >
+            Go Back
+          </button>
+        </div>
+      </div>
+    </section>
+    <script id="ispi-not-found-script">
+      (function () {
+        var n = document.getElementById("ispi-not-found"),
+          p = document.getElementById("ispi-not-found-path"),
+          b = document.getElementById("ispi-not-found-back");
+        if (!n) return;
+        function home(x) {
+          return (
+            x === "/" ||
+            x === "/index.html" ||
+            x === "" ||
+            x.endsWith("/index.html")
+          );
+        }
+        function show() {
+          n.classList.add("is-visible");
+          document.body.style.overflow = "hidden";
+          if (p)
+            p.textContent = window.location.pathname + window.location.search;
+        }
+        function hide() {
+          n.classList.remove("is-visible");
+          document.body.style.overflow = "";
+        }
+        function check() {
+          if (window.location.protocol === "file:") {
+            hide();
+            return;
+          }
+          home(window.location.pathname) ? hide() : show();
+        }
+        document.addEventListener("click", function (e) {
+          var a = e.target.closest("a");
+          if (!a) return;
+          var h = a.getAttribute("href");
+          if (!h || h === "#" || h.charAt(0) === "#") return;
+          if (/^(https?:|mailto:|tel:|javascript:)/i.test(h)) return;
+          var u = new URL(h, window.location.href);
+          if (u.origin === window.location.origin && !home(u.pathname)) {
+            e.preventDefault();
+            window.history.pushState({}, "", u.pathname + u.search + u.hash);
+            show();
+          }
+        });
+        window.addEventListener("popstate", check);
+        if (b)
+          b.addEventListener("click", function () {
+            window.history.length > 1
+              ? window.history.back()
+              : (window.location.href = "/");
+          });
+        check();
+      })();
+    </script>
   </body>
 </html>
